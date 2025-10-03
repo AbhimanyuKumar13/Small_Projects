@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>J-Shop</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/wishList.css" />
+  </head>
+  <body>
+    <header>
+      <div class="nameWeb">
+        <h1>Shop</h1>
+      </div>
+      <div class="search">
+        <img src="/assets/search.svg" alt="search" />
+        <input type="text" id="search" placeholder="Find your choice" />
+      </div>
+      <div class="navitems">
+        <a href="#" class="navitem">
+          <img src="/assets/person.svg" alt="person" />
+          <p id="accountIcon">ACCOUNT</p>
+        </a>
+        <a href="/html/wishlist.html" class="navitem">
+          <img src="/assets/fav.svg" alt="fav" />
+          <p>WISHLIST<sup class="wishListItemsCount">0</sup></p>
+        </a>
+        <a href="/HTML/cart.html" class="navitem">
+          <img src="/assets/cart.svg" alt="cart" />
+          <p id="cart">CART<sup class="cartItemsCount">0</sup></p>
+        </a>
+      </div>
+      <div class="hamburger">
+        <img src="/assets/hamburger.svg" alt="humberger" />
+      </div>
+    </header>
+    <div class="invisible">
+      <div class="hamburgerMedia">
+        <h1>ACCOUNT</h1>
+        <h1>WISHLIST</h1>
+        <h1>CART</h1>
+      </div>
+    </div>
+    <main>
+      <h1>Items</h1>
+      <div class="itemsContainer">
+        <div class="items"></div>
+      </div>
+    </main>
+    <footer>
+      <div class="contactUs">
+        <h3>Suggestion</h3>
+        <h3>Contact Us</h3>
+      </div>
+      <div class="copyRight">
+        <p>© 2024 A Company Limited. All Rights Reserved.</p>
+      </div>
+    </footer>  
+    <script src="/js/item.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/wishList.js"></script>
+  </body>
+</html>

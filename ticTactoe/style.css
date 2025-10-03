@@ -1,0 +1,99 @@
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box; 
+font-family: "Source Sans 3", sans-serif;
+}
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Nova+Mono&family=Source+Sans+3:wght@500&display=swap');
+
+html, body{
+width: 100%;
+height: 100%;
+}
+main{
+  width: 100%;
+  height: 100%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.h1{
+  font-size: 60px;
+  padding: 20px 0;
+  color: aqua; 
+  text-shadow: 0 0 2px black;
+}
+.mainContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;  
+  width: 100%;
+  height:100%;
+}
+.gameContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  width: 60%; 
+  height: 100%;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+}
+.box{
+    width: 150px;
+    height: 150px;
+    border: 3px solid gray;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 2px 2px 15px gray;
+    background-color: azure;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    margin: 5px;
+}
+.resultContainer{ 
+  position: relative;
+  top: 30px;
+  width: 40%;
+  height: 100%;
+}
+.btns{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.resetgameBtn{
+  margin-top: 20px;
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  border-radius: 5px; 
+  padding: 10px 30px; 
+  width: 250px;
+  cursor: pointer;
+  font-size: 30px;
+}
+.newgameBtn{
+  margin-top: 50px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px; 
+  padding: 10px 30px; 
+  font-size: 30px;
+  width: 250px;
+  cursor: pointer;
+}
+.show-win{
+  margin: 20px;
+  font-size: 40px;
+  font-weight: 600;
+  color: green;
+}
+#msg{
+  font-size: 70px;
+}

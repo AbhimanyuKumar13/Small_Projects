@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="small_cricket_game.css" />
+</head>
+
+<body>
+  <div class="h1div">
+    <h1 id="heading1">!! LOGICAL CRICKET GAME !!</h1>
+  </div>
+  <div class="maindiv">
+    <div class="firstdiv">
+      <div class="h2div">
+        <h2 id="heading2">Click On Your Choice</h2>
+      </div>
+      <div class="buttondiv">
+        <div class="buttonfirstpart">
+          <button onclick="playGame('bat')">
+            <img class="clickImg" src="img/BAT.png" alt="bat img">
+          </button>
+          <button onclick="playGame('ball')">
+            <img class="clickImg" src="img/BALL.png" alt="ball img">
+          </button>
+          <button onclick="playGame('stump')">
+            <img class="clickImg" src="img/STUMP.png" alt="stump img">
+          </button>
+        </div>
+        <div class="buttonsecondpart">
+          <button class="resetbutton" onclick="localStorage.clear(); resetScore()">RESET</button>
+        </div>
+      </div>
+    </div>
+    <div class="resultClass">
+      <h3 id="usermove"></h3>
+      <h3 id="computermove"></h3>
+      <h3 id="result"></h3>
+      <h3 id="score"></h3>
+    </div>
+  </div>
+  <div id="rule">
+    <table border="1">
+      <caption>
+        RULE
+      </caption>
+      <tr>
+        <th>Sr. no</th>
+        <th>User Choice</th>
+        <th>Computer Choice</th>
+        <th>Result</th>
+      </tr>
+      <tr>
+        <td>1.</td>
+        <td>SAME</td>
+        <td>SAME</td>
+        <td>tie</td>
+      </tr>
+      <tr>
+        <td>2.</td>
+        <td>bat</td>
+        <td>ball</td>
+        <td>user won</td>
+      </tr>
+      <tr>
+        <td>3.</td>
+        <td>bat</td>
+        <td>stump</td>
+        <td>computer won</td>
+      </tr>
+      <tr>
+        <td>4.</td>
+        <td>ball</td>
+        <td>stump</td>
+        <td>user won</td>
+      </tr>
+      <tr>
+        <td>5.</td>
+        <td>ball</td>
+        <td>bat</td>
+        <td>computer won</td>
+      </tr>
+      <td>6.</td>
+      <td>stump</td>
+      <td>bat</td>
+      <td>user won</td>
+      </tr>
+      <tr>
+        <td>7.</td>
+        <td>stump</td>
+        <td>ball</td>
+        <td>computer won</td>
+      </tr>
+    </table>
+  </div>
+  <script>
+    let score;
+    let scorestr = localStorage.getItem("score");
+    resetScore(scorestr);
+    function resetScore(scorestr) {
+      score = scorestr ? JSON.parse(scorestr) : { win: 0, lose: 0, tie: 0 };
+
+      score.DisplayScore = function () {
+        return `Score : Win = ${score.win} lost = ${score.lose} tie = ${score.tie}`;
+      };
+      showResult();
+    }
+
+    function playGame(userChoice) {
+      let computerChoice = computerChoices();
+      let resultMsg = getResult(userChoice, computerChoice);
+      showResult(userChoice, computerChoice, resultMsg);
+    }
+
+    function computerChoices() {
+      let random_number = Math.random() * 3;
+      if (random_number <= 1) {
+        return "bat";
+      } else if (random_number <= 2) {
+        return "ball";
+      } else {
+        return "stump";
+      }
+    }
+    function getResult(userChoice, computerChoice) {
+      if (userChoice === "ball" && computerChoice === "bat") {
+        score.lose++;
+        return "Computer has won";
+      } else if (userChoice === "ball" && computerChoice === "stump") {
+        score.win++;
+        return "User won";
+      } else if (userChoice === "bat" && computerChoice === "stump") {
+        score.lose++;
+        return "computer has won";
+      } else if (userChoice === "bat" && computerChoice === "ball") {
+        score.win++;
+        return "User won";
+      } else if (userChoice === "stump" && computerChoice === "bat") {
+        score.win++;
+        return "User won";
+      } else if (userChoice === "stump" && computerChoice === "ball") {
+        score.lose++;
+        return "Computer has won";
+      } else {
+        score.tie++;
+        return `it's a tie`;
+      }
+    }
+    // function getResult(userChoice, computerChoice) {
+    //   if (userChoice === 'ball') {
+    //     if (computerChoice === 'ball') {
+    //       score.tie++;
+    //       return `it's a tie`;
+    //     } else if (computerChoice === 'bat') {
+    //       score.loss++;
+    //       return `computer has won`;
+    //     } else if (computerChoice === 'stump') {
+    //       score.win++;
+    //       return 'user won';
+    //     }
+    //   } else if (userChoice === 'bat') {
+    //     if (computerChoice === 'ball') {
+    //       score.win++;
+    //       return 'user won';
+    //     } else if (computerChoice === 'bat') {
+    //       score.tie++;
+    //       return `it's a tie`;
+    //     } else if (computerChoice === 'stump') {
+    //       score.loss++;
+    //       return 'computer has won';
+    //     }
+    //   } else if (userChoice === 'stump') {
+    //     if (computerChoice === 'ball') {
+    //       score.loss++;
+    //       return 'computer has won.';
+    //     } else if (computerChoice === 'bat') {
+    //       score.win++;
+    //       return 'user won';
+    //     } else if (computerChoice === 'stump') {
+    //       score.tie++;
+    //       return `it's a tie`;
+    //     }
+    //   } else {
+    //     return 'invalid user choice';
+    //   }
+    // }
+
+    function showResult(userChoice, computerChoice, result) {
+      localStorage.setItem("score", JSON.stringify(score));
+
+      document.querySelector('#usermove').innerText =
+        userChoice !== undefined ? `Your choice is ${userChoice}` : '';
+
+      document.querySelector('#computermove').innerText =
+        computerChoice !== undefined ? `Computer choice is ${computerChoice}` : '';
+      document.querySelector('#result').innerText =
+        result !== undefined ? `Result: ${result}` : '';
+      document.querySelector('#score').innerText =
+        score !== undefined ? score.DisplayScore() : '';
+    }
+  </script>
+</body>
+<footer class="footer">Devloped & Designed by Er. Abhimanyu Kumar(Abhi)</footer>
+
+</html>

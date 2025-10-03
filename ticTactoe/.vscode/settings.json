@@ -1,0 +1,9 @@
+{
+  "livePreview.portNumber": 5500,
+  "livePreview.openPreviewTarget": "External Browser",
+  "livePreview.hostIP": "192.168.152.177",
+  "liveServer.settings.host": "127.0.0.1",
+  "livePreview.debugOnExternalPreview": true,
+  "livePreview.customExternalBrowser": "Chrome",
+  "liveServer.settings.port": 5502
+}

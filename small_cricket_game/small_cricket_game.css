@@ -1,0 +1,85 @@
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+} 
+body{
+  background-color: rgb(0, 255, 242);
+}
+#heading1{
+  font-size: 30px;
+  font-weight: 600;
+  padding: 16px 5px;
+  background-color: rgb(255, 230, 3);
+}
+.h1div{
+  width: 100vw;
+  position: sticky;
+  top: 0; 
+  display: flex;
+  justify-content: center; 
+  background-color: rgb(255, 230, 3);
+}
+.h2div{
+  display: flex;
+  justify-content: center;
+} 
+.firstdiv{
+  margin-top: 55px;
+}
+.resultClass{
+  margin: 50px 40px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;  
+  align-items: center;
+}
+.buttondiv{
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+
+}
+.resetbutton{
+  margin: 40px;
+  background-color: red;
+} 
+button{
+  color: white;
+  margin: 10px 5px;
+  padding: 5px 20px; 
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(0, 160, 0);
+  font-size: 20px;
+  cursor: pointer;
+}
+#rule{
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: 30px;
+}
+td{
+  padding: 10px;
+}
+th{
+  padding: 10px;
+} 
+div h3{ 
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 700;
+  margin: 10px;
+}  
+.footer{
+  margin: 20px;
+}
+.clickImg{
+  height: 100px;
+  padding: 30px;
+  margin: -20px;
+  color: rgb(0, 255, 242);
+  background-color: rgb(0, 255, 242);
+}
